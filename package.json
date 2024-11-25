@@ -8,9 +8,10 @@
     "build": "rimraf dist && tsc --project tsconfig.build.json",
     "format": "prettier --ignore-path .gitignore --write --list-different .",
     "lint": "pnpm run lint:eslint && pnpm run lint:typescript && pnpm run lint:prettier",
-    "lint:eslint": "eslint --max-warnings=0 --flag unstable_ts_config ",
+    "lint:eslint": "eslint --max-warnings=0 --flag unstable_ts_config",
     "lint:prettier": "prettier --ignore-path .gitignore --check .",
-    "lint:typescript": "tsc --noEmit"
+    "lint:typescript": "tsc --noEmit",
+    "prepare": "husky"
   },
   "dependencies": {
     "@eslint/compat": "^1.2.3",
@@ -24,11 +25,15 @@
     "typescript-eslint": "^8.15.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^19.6.0",
+    "@commitlint/config-conventional": "^19.6.0",
     "@kutsan/prettier-config": "^1.0.1",
     "@kutsan/typescript-config": "^1.0.0",
     "@types/node": "^22.9.3",
     "eslint": "^9.15.0",
+    "husky": "^9.1.7",
     "jiti": "^2.4.0",
+    "lint-staged": "^15.2.10",
     "prettier": "^3.3.3",
     "rimraf": "^6.0.1",
     "typescript": "^5.6.3"
