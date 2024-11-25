@@ -2,7 +2,10 @@
   "name": "@kutsan/eslint-config",
   "version": "0.0.0",
   "description": "Eslint configuration for my projects",
-  "repository": "github:kutsan/eslint-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kutsan/eslint-config.git"
+  },
   "license": "MIT",
   "author": "Kutsan Kaplan <me@kutsan.dev> (https://kutsan.dev)",
   "type": "module",
