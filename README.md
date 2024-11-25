@@ -1,16 +1,23 @@
-# eslint-config
+# @kutsan/eslint-config
 
-## TODO
+## Usage
 
-- [ ] plugin react
-- [ ] plugin react hooks
-- [ ] eslint plugin react compiler
-- [ ] eslint plugin react refresh
-- [x] eslint recommended
-- [x] typescript strict
-- [x] eslint config love
-- [ ] eslint config standard
-- [ ] i18next
-- [ ] next
-- [ ] expo react native
-- [ ] prettier ??
+Install the config package:
+
+```sh
+npm install @kutsan/eslint-config --save-dev
+```
+
+Then use it in your `eslint.config.js` file:
+
+```javascript
+import { eslintConfig } from '@kutsan/eslint-config'
+
+const config = [
+  ...eslintConfig({
+    configs: ['node'],
+  }),
+]
+
+export default config
+```
