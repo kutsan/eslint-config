@@ -20,6 +20,12 @@ export const baseConfig: ConfigArray = [
     rules: {
       // TODO: Gradually enable this rule
       '@typescript-eslint/no-magic-numbers': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
   },
 ]

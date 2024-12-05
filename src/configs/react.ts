@@ -25,13 +25,9 @@ export const reactConfig: ConfigArray = [
     rules: {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       ...pluginReact.configs.flat!.recommended!.rules,
+      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+      ...pluginReact.configs.flat!['jsx-runtime']?.rules,
       ...pluginReactHooks.configs.recommended?.rules,
-    },
-  },
-  {
-    files: [tsxGlob],
-    rules: {
-      'react-refresh/only-export-components': 'error',
     },
   },
 ]
