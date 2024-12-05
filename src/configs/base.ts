@@ -19,6 +19,14 @@ export const baseConfig: ConfigArray = [
     files: [jsGlob, tsGlob, tsxGlob],
     rules: {
       ...configLove.rules,
+      complexity: [
+        'error',
+        {
+          variant: 'modified',
+          // TODO: Gradually decrease this rule.
+          max: 10,
+        },
+      ],
       // TODO: Gradually enable this rule
       '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/no-unused-vars': [
@@ -27,6 +35,11 @@ export const baseConfig: ConfigArray = [
           argsIgnorePattern: '^_',
         },
       ],
+      '@typescript-eslint/prefer-destructuring': [
+        'error',
+        { array: true, object: true },
+      ],
+      '@typescript-eslint/no-unsafe-type-assertion': 'off',
     },
   },
 ]
