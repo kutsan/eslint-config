@@ -17,9 +17,9 @@ export function eslintConfig(options: { configs: ConfigName[] }): ConfigArray {
     node: nodeConfig,
     web: webConfig,
   }
-  const configs = options.configs.map(
+  const selectedConfigs = options.configs.map(
     (configName: ConfigName) => configMappings[configName],
   )
 
-  return tseslint.config(ignoreConfig, baseConfig, configs)
+  return tseslint.config(ignoreConfig, baseConfig, selectedConfigs)
 }
