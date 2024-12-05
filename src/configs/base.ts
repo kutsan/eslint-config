@@ -18,6 +18,7 @@ export const baseConfig: ConfigArray = [
     ...configLove,
     files: [jsGlob, tsGlob, tsxGlob],
     rules: {
+      ...configLove.rules,
       // TODO: Gradually enable this rule
       '@typescript-eslint/no-magic-numbers': 'off',
       '@typescript-eslint/no-unused-vars': [
