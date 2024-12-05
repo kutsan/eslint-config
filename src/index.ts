@@ -11,14 +11,14 @@ import type { ConfigArray } from './types/config.js'
 type ConfigName = 'react' | 'react-native' | 'node' | 'web'
 
 export function eslintConfig(options: { configs: ConfigName[] }): ConfigArray {
-  const configMapping: Record<ConfigName, ConfigArray> = {
+  const configMappings: Record<ConfigName, ConfigArray> = {
     react: reactConfig,
     'react-native': reactNativeConfig,
     node: nodeConfig,
     web: webConfig,
   }
   const configs = options.configs.map(
-    (configName: ConfigName) => configMapping[configName],
+    (configName: ConfigName) => configMappings[configName],
   )
 
   return tseslint.config(ignoreConfig, baseConfig, configs)
