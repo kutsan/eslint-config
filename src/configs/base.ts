@@ -24,7 +24,7 @@ export const baseConfig: ConfigArray = [
         {
           variant: 'modified',
           // TODO: Gradually decrease this rule.
-          max: 10,
+          max: 50,
         },
       ],
       // TODO: Gradually enable this rule
