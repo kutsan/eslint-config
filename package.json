@@ -40,7 +40,7 @@
     "@kutsan/prettier-config": "^1.0.1",
     "@kutsan/typescript-config": "^1.0.0",
     "@types/node": "^22.10.1",
-    "eslint": "^9.16.0",
+    "eslint": "^9.31.0",
     "husky": "^9.1.7",
     "jiti": "^2.4.1",
     "lint-staged": "^15.2.10",
