@@ -1,7 +1,8 @@
-import type { ConfigArray } from '../types/config.js'
-import { browserGlobals } from '../utils/globals.js'
+import type { Config } from 'eslint/config'
 
-export const webConfig: ConfigArray = [
+import { browserGlobals } from '../utils/globals.ts'
+
+export const webConfig: Config[] = [
   {
     languageOptions: {
       globals: browserGlobals,

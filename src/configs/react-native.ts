@@ -1,3 +1,3 @@
-import type { ConfigArray } from '../types/config.js'
+import type { Config } from 'eslint/config'
 
-export const reactNativeConfig: ConfigArray = []
+export const reactNativeConfig: Config[] = []

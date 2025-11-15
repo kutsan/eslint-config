@@ -1,17 +1,16 @@
-import tseslint from 'typescript-eslint'
+import { type Config, defineConfig } from 'eslint/config'
 
-import { baseConfig } from './configs/base.js'
-import { ignoreConfig } from './configs/ignore.js'
-import { nodeConfig } from './configs/node.js'
-import { reactNativeConfig } from './configs/react-native.js'
-import { reactConfig } from './configs/react.js'
-import { webConfig } from './configs/web.js'
-import type { ConfigArray } from './types/config.js'
+import { baseConfig } from './configs/base.ts'
+import { ignoreConfig } from './configs/ignore.ts'
+import { nodeConfig } from './configs/node.ts'
+import { reactNativeConfig } from './configs/react-native.ts'
+import { reactConfig } from './configs/react.ts'
+import { webConfig } from './configs/web.ts'
 
 type ConfigName = 'react' | 'react-native' | 'node' | 'web'
 
-export function eslintConfig(options: { configs: ConfigName[] }): ConfigArray {
-  const configMappings: Record<ConfigName, ConfigArray> = {
+export function eslintConfig(options: { configs: ConfigName[] }): Config[] {
+  const configMappings: Record<ConfigName, Config[]> = {
     react: reactConfig,
     'react-native': reactNativeConfig,
     node: nodeConfig,
@@ -21,5 +20,5 @@ export function eslintConfig(options: { configs: ConfigName[] }): ConfigArray {
     (configName: ConfigName) => configMappings[configName],
   )
 
-  return tseslint.config(ignoreConfig, baseConfig, selectedConfigs)
+  return defineConfig(ignoreConfig, baseConfig, ...selectedConfigs)
 }

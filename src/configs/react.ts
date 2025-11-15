@@ -1,33 +1,30 @@
-import type { ESLint } from 'eslint'
-import pluginReact from 'eslint-plugin-react'
-import pluginReactHooks from 'eslint-plugin-react-hooks'
+import reactPlugin from 'eslint-plugin-react'
+import reactHooksPlugin from 'eslint-plugin-react-hooks'
+import reactRefreshPlugin from 'eslint-plugin-react-refresh'
+import type { Config } from 'eslint/config'
 
-import type { ConfigArray } from '../types/config.js'
-import { tsGlob, tsxGlob } from '../utils/files-globs.js'
-import { reactTypeScriptLanguageOptions } from '../utils/language-options.js'
+import { jsGlob, jsxGlob, tsGlob, tsxGlob } from '../utils/files-globs.ts'
 
-export const reactConfig: ConfigArray = [
+export const reactConfig: Config[] = [
   {
-    files: [tsxGlob],
-    languageOptions: reactTypeScriptLanguageOptions,
-  },
-  {
-    files: [tsGlob, tsxGlob],
-    plugins: {
-      react: pluginReact as ESLint.Plugin,
-      'react-hooks': pluginReactHooks as ESLint.Plugin,
-    },
+    files: [jsGlob, jsxGlob, tsGlob, tsxGlob],
     settings: {
       react: {
         version: 'detect',
       },
     },
-    rules: {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      ...pluginReact.configs.flat!.recommended!.rules,
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      ...pluginReact.configs.flat!['jsx-runtime']?.rules,
-      ...pluginReactHooks.configs.recommended?.rules,
-    },
+  },
+  {
+    files: [jsGlob, jsxGlob, tsGlob, tsxGlob],
+    ...reactPlugin.configs.flat['recommended'],
+    ...reactPlugin.configs.flat['jsx-runtime'],
+  },
+  {
+    files: [jsGlob, jsxGlob, tsGlob, tsxGlob],
+    ...reactHooksPlugin.configs.flat.recommended,
+  },
+  {
+    files: [jsxGlob, tsxGlob],
+    ...reactRefreshPlugin.configs.recommended,
   },
 ]

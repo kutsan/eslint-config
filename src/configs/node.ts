@@ -1,7 +1,8 @@
-import type { ConfigArray } from '../types/config.js'
-import { nodeGlobals } from '../utils/globals.js'
+import type { Config } from 'eslint/config'
 
-export const nodeConfig: ConfigArray = [
+import { nodeGlobals } from '../utils/globals.ts'
+
+export const nodeConfig: Config[] = [
   {
     languageOptions: {
       globals: nodeGlobals,

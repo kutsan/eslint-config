@@ -1,45 +1,59 @@
 import eslint from '@eslint/js'
 import configLove from 'eslint-config-love'
+import type { Config } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 
-import type { ConfigArray } from '../types/config.js'
-import { jsGlob, tsGlob, tsxGlob } from '../utils/files-globs.js'
-import { typeScriptLanguageOptions } from '../utils/language-options.js'
+import { jsGlob, tsGlob, tsxGlob } from '../utils/files-globs.ts'
 
-export const baseConfig: ConfigArray = [
+const maxComplexity = 20
+
+export const baseConfig: Config[] = [
   eslint.configs.recommended,
   ...tseslint.configs.strictTypeChecked,
   ...tseslint.configs.stylisticTypeChecked,
   {
-    files: [tsGlob],
-    languageOptions: typeScriptLanguageOptions,
+    languageOptions: { parser: tseslint.parser },
   },
   {
-    ...configLove,
     files: [jsGlob, tsGlob, tsxGlob],
+    ...configLove,
     rules: {
       ...configLove.rules,
       complexity: [
         'error',
         {
           variant: 'modified',
-          // TODO: Gradually decrease this rule.
-          max: 50,
+          max: maxComplexity,
         },
       ],
-      // TODO: Gradually enable this rule
-      '@typescript-eslint/no-magic-numbers': 'off',
+      'no-console': ['warn', { allow: ['warn', 'error'] }],
+      '@typescript-eslint/no-magic-numbers': [
+        'error',
+        {
+          ignore: [0, 1],
+          ignoreArrayIndexes: false,
+          ignoreDefaultValues: false,
+          ignoreClassFieldInitialValues: false,
+          enforceConst: false,
+          detectObjects: true,
+          ignoreEnums: true,
+          ignoreNumericLiteralTypes: false,
+          ignoreReadonlyClassProperties: true,
+          ignoreTypeIndexes: false,
+        },
+      ],
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
+          args: 'all',
           argsIgnorePattern: '^_',
+          ignoreRestSiblings: true,
         },
       ],
       '@typescript-eslint/prefer-destructuring': [
         'error',
         { array: true, object: true },
       ],
-      '@typescript-eslint/no-unsafe-type-assertion': 'off',
     },
   },
 ]

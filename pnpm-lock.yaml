@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@eslint/js':
-        specifier: ^9.16.0
+        specifier: ^9.39.1
         version: 9.39.1
       eslint-config-flat-gitignore:
         specifier: ^2.1.0
@@ -18,16 +18,19 @@ importers:
         specifier: ^133.0.0
         version: 133.0.0(@typescript-eslint/parser@8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3))(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
       eslint-plugin-react:
-        specifier: ^7.37.2
+        specifier: ^7.37.5
         version: 7.37.5(eslint@9.39.1(jiti@2.6.1))
       eslint-plugin-react-hooks:
         specifier: ^7.0.1
         version: 7.0.1(eslint@9.39.1(jiti@2.6.1))
+      eslint-plugin-react-refresh:
+        specifier: ^0.4.24
+        version: 0.4.24(eslint@9.39.1(jiti@2.6.1))
       globals:
         specifier: ^16.5.0
         version: 16.5.0
       typescript-eslint:
-        specifier: ^8.17.0
+        specifier: ^8.46.4
         version: 8.46.4(eslint@9.39.1(jiti@2.6.1))(typescript@5.9.3)
     devDependencies:
       '@commitlint/cli':
@@ -37,16 +40,16 @@ importers:
         specifier: ^20.0.0
         version: 20.0.0
       '@kutsan/prettier-config':
-        specifier: ^1.0.1
+        specifier: ^1.1.0
         version: 1.1.0(prettier@3.6.2)
       '@kutsan/typescript-config':
-        specifier: ^1.0.0
-        version: 1.1.0
+        specifier: ^1.2.0
+        version: 1.2.0
       '@types/node':
         specifier: ^24.10.1
         version: 24.10.1
       eslint:
-        specifier: ^9.31.0
+        specifier: ^9.39.1
         version: 9.39.1(jiti@2.6.1)
       husky:
         specifier: ^9.1.7
@@ -55,13 +58,13 @@ importers:
         specifier: ^16.2.6
         version: 16.2.6
       prettier:
-        specifier: ^3.4.2
+        specifier: ^3.6.2
         version: 3.6.2
       rimraf:
-        specifier: ^6.0.1
+        specifier: ^6.1.0
         version: 6.1.0
       typescript:
-        specifier: ^5.7.2
+        specifier: ^5.9.3
         version: 5.9.3
 
 packages:
@@ -298,8 +301,8 @@ packages:
     peerDependencies:
       prettier: '>=3'
 
-  '@kutsan/typescript-config@1.1.0':
-    resolution: {integrity: sha512-/L5PcrzwOpnZh5pPEkHRWAOq+qrDxsz5B8sBHSuJLsGrGq+KRilWMB/q3otQUVJTxIICeClZgVwNq6XxM+1s4Q==}
+  '@kutsan/typescript-config@1.2.0':
+    resolution: {integrity: sha512-65YIUQwTSxr7P484WC7dkQRqyJIxFWoYk8y+9gOWhMNNKsyjkt3vGFQRSO+wJuguELt8FHeGPgtTBNNJef0MNA==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -832,6 +835,11 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       eslint: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0-0 || ^9.0.0
+
+  eslint-plugin-react-refresh@0.4.24:
+    resolution: {integrity: sha512-nLHIW7TEq3aLrEYWpVaJ1dRgFR+wLDPN8e8FpYAql/bMV2oBEfC37K0gLEGgv9fy66juNShSMV8OkTqzltcG/w==}
+    peerDependencies:
+      eslint: '>=8.40'
 
   eslint-plugin-react@7.37.5:
     resolution: {integrity: sha512-Qteup0SqU15kdocexFNAJMvCJEfa2xUKNV4CC1xsVMrIIqEy3SQ/rqyxCWNzfrd3/ldy6HMlD2e0JDVpDg2qIA==}
@@ -2240,7 +2248,7 @@ snapshots:
       - supports-color
       - svelte
 
-  '@kutsan/typescript-config@1.1.0': {}
+  '@kutsan/typescript-config@1.2.0': {}
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2923,6 +2931,10 @@ snapshots:
       zod-validation-error: 4.0.2(zod@4.1.12)
     transitivePeerDependencies:
       - supports-color
+
+  eslint-plugin-react-refresh@0.4.24(eslint@9.39.1(jiti@2.6.1)):
+    dependencies:
+      eslint: 9.39.1(jiti@2.6.1)
 
   eslint-plugin-react@7.37.5(eslint@9.39.1(jiti@2.6.1)):
     dependencies:

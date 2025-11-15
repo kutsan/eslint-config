@@ -1,4 +1,4 @@
-import { eslintConfig } from './src/index.js'
+import { eslintConfig } from './src/index.ts'
 
 const config = [
   ...eslintConfig({
