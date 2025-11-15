@@ -17,38 +17,36 @@
   ],
   "scripts": {
     "build": "rimraf dist && tsc --project tsconfig.build.json",
+    "check": "pnpm run check:lint && pnpm run check:format && pnpm run check:format",
+    "check:format": "prettier --ignore-path .gitignore --check .",
+    "check:lint": "eslint --max-warnings=0 --flag unstable_native_nodejs_ts_config",
+    "check:types": "tsc --noEmit",
     "format": "prettier --ignore-path .gitignore --write --list-different .",
-    "lint": "pnpm run lint:eslint && pnpm run lint:typescript && pnpm run lint:prettier",
-    "lint:eslint": "eslint --max-warnings=0 --flag unstable_ts_config",
-    "lint:prettier": "prettier --ignore-path .gitignore --check .",
-    "lint:typescript": "tsc --noEmit",
     "prepare": "husky"
   },
   "dependencies": {
-    "@eslint/compat": "^1.2.4",
     "@eslint/js": "^9.16.0",
-    "eslint-config-flat-gitignore": "^0.3.0",
-    "eslint-config-love": "^109.0.0",
+    "eslint-config-flat-gitignore": "^2.1.0",
+    "eslint-config-love": "^133.0.0",
     "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.0.0",
-    "globals": "^15.13.0",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "globals": "^16.5.0",
     "typescript-eslint": "^8.17.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.6.0",
-    "@commitlint/config-conventional": "^19.6.0",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "@kutsan/prettier-config": "^1.0.1",
     "@kutsan/typescript-config": "^1.0.0",
-    "@types/node": "^22.10.1",
+    "@types/node": "^24.10.1",
     "eslint": "^9.31.0",
     "husky": "^9.1.7",
-    "jiti": "^2.4.1",
-    "lint-staged": "^15.2.10",
+    "lint-staged": "^16.2.6",
     "prettier": "^3.4.2",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.2"
   },
   "peerDependencies": {
-    "eslint": "9 >="
+    "eslint": ">=9"
   }
 }
