@@ -30,7 +30,7 @@ export const baseConfig: Config[] = [
       '@typescript-eslint/no-magic-numbers': [
         'error',
         {
-          ignore: [0, 1],
+          ignore: [0, 1, -1],
           ignoreArrayIndexes: false,
           ignoreDefaultValues: false,
           ignoreClassFieldInitialValues: false,
