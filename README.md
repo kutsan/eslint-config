@@ -5,19 +5,20 @@
 Install the config package:
 
 ```sh
-npm install @kutsan/eslint-config --save-dev
+npm add @kutsan/eslint-config --save-dev
 ```
 
-Then use it in your `eslint.config.js` file:
+Then use it in your `eslint.config.ts` file:
 
-```javascript
+```typescript
 import { eslintConfig } from '@kutsan/eslint-config'
+import { defineConfig } from 'eslint/config'
 
-const config = [
-  ...eslintConfig({
+const config = defineConfig([
+  eslintConfig({
     configs: ['node'],
   }),
-]
+])
 
 export default config
 ```
