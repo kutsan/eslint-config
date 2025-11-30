@@ -3,19 +3,21 @@ import configLove from 'eslint-config-love'
 import type { Config } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 
-import { jsGlob, tsGlob, tsxGlob } from '../utils/files-globs.ts'
+import { jsGlob, jsxGlob, tsGlob, tsxGlob } from '../utils/files-globs.ts'
+import { mapTypeScriptEslintConfig } from '../utils/tseslint-config-mapper.ts'
 
 const maxComplexity = 20
 
 export const baseConfig: Config[] = [
   eslint.configs.recommended,
-  ...tseslint.configs.strictTypeChecked,
-  ...tseslint.configs.stylisticTypeChecked,
+  ...tseslint.configs.strictTypeChecked.map(mapTypeScriptEslintConfig),
+  ...tseslint.configs.stylisticTypeChecked.map(mapTypeScriptEslintConfig),
   {
+    files: [jsGlob, jsxGlob, tsGlob, tsxGlob],
     languageOptions: { parser: tseslint.parser },
   },
   {
-    files: [jsGlob, tsGlob, tsxGlob],
+    files: [jsGlob, jsxGlob, tsGlob, tsxGlob],
     ...configLove,
     rules: {
       ...configLove.rules,
