@@ -6,6 +6,7 @@ import { nodeConfig } from './configs/node.ts'
 import { reactNativeConfig } from './configs/react-native.ts'
 import { reactConfig } from './configs/react.ts'
 import { webConfig } from './configs/web.ts'
+import { yamlConfig } from './configs/yaml.ts'
 
 type ConfigName = 'react' | 'react-native' | 'node' | 'web'
 
@@ -20,5 +21,5 @@ export function eslintConfig(options: { configs: ConfigName[] }): Config[] {
     (configName: ConfigName) => configMappings[configName],
   )
 
-  return defineConfig(ignoreConfig, baseConfig, ...selectedConfigs)
+  return defineConfig(ignoreConfig, baseConfig, yamlConfig, ...selectedConfigs)
 }
