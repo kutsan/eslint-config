@@ -1,6 +1,6 @@
 {
   "name": "@kutsan/eslint-config",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Eslint configuration for my projects",
   "repository": {
     "type": "git",
@@ -9,13 +9,13 @@
   "license": "MIT",
   "author": "Kutsan Kaplan <me@kutsan.dev> (https://kutsan.dev)",
   "type": "module",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js"
     }
   },
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
