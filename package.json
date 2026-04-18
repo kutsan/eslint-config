@@ -9,6 +9,7 @@
   "license": "MIT",
   "author": "Kutsan Kaplan <me@kutsan.dev> (https://kutsan.dev)",
   "type": "module",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
