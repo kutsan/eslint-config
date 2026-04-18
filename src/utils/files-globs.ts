@@ -3,3 +3,8 @@ export const tsxGlob = '**/*.{tsx,mtsx}'
 export const jsGlob = '**/*.{js,cjs,mjs}'
 export const jsxGlob = '**/*.{jsx,mjsx}'
 export const yamlGlob = '**/*.{yml,yaml}'
+
+export const stylesTsGlob = '**/*.styles.ts'
+export const stylesTsxGlob = '**/*.styles.{tsx,mtsx}'
+export const stylesJsGlob = '**/*.styles.{js,cjs,mjs}'
+export const stylesJsxGlob = '**/*.styles.{jsx,mjsx}'
