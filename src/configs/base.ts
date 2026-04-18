@@ -3,16 +3,7 @@ import configLove from 'eslint-config-love'
 import type { Config } from 'eslint/config'
 import tseslint from 'typescript-eslint'
 
-import {
-  jsGlob,
-  jsxGlob,
-  stylesJsGlob,
-  stylesJsxGlob,
-  stylesTsGlob,
-  stylesTsxGlob,
-  tsGlob,
-  tsxGlob,
-} from '../utils/files-globs.ts'
+import { jsGlob, jsxGlob, tsGlob, tsxGlob } from '../utils/files-globs.ts'
 import { mapTypeScriptEslintConfig } from '../utils/tseslint-config-mapper.ts'
 
 const maxComplexity = 20
@@ -65,12 +56,6 @@ export const baseConfig: Config[] = [
         'error',
         { array: true, object: true },
       ],
-    },
-  },
-  {
-    files: [stylesJsGlob, stylesJsxGlob, stylesTsGlob, stylesTsxGlob],
-    rules: {
-      '@typescript-eslint/no-magic-numbers': 'off',
     },
   },
 ]
